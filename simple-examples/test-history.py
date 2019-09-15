@@ -10,4 +10,4 @@ history = comapapi(KEY,TOKEN).history(GENSET_ID,'09/10/2019','09/13/2019',VALUE_
 print('Engine State history')
 print('-------------------------------------------')
 for event in history[0]["history"]:
-    print(f'{event["value"]:<8} valit to {timestring.Date(event["validTo"])}')
+    print(f'{event["value"]:<8} valit to {event["validTo"]}')
