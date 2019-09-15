@@ -1,12 +1,13 @@
 import logging
-from config import KEY, TOKEN
+from config import KEY, TOKEN, GENSET_ID
 from comap.api import comapapi
-logging.basicConfig(level=logging.DEBUG)
+from datetime import datetime,datetime
 
-GENSET_ID = 'genseta3813e5af9fb419293778e95cdfa9e80'
+logging.basicConfig(level=logging.DEBUG)
 
 files = comapapi(KEY,TOKEN).files(GENSET_ID)
 print('Files')
 print('-------------------------------------------')
 for file in files:
-    print(f'{file["fileName"]}')
+    print(f'{datetime.strptime(file["generated"],"%Y-%m-%d %H:%M:%SZ").date()}   {file["fileName"]} ')
+
