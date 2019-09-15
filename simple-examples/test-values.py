@@ -1,7 +1,7 @@
 import logging
 from config import KEY, TOKEN, GENSET_ID
 from comap.api import comapapi
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.ERROR)
 
 VALUE_GUIDS = '6a12aed6-3be0-44c4-9110-9ea33cfe3ccc,'\
               'BB2D1ADE-740E-488d-853B-6BA970D52E27,'\
