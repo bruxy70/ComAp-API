@@ -13,6 +13,7 @@ from datetime import datetime,date
 from comap.api_async import comapapi_async
 logging.basicConfig(level=logging.ERROR)
 
+#Tohle bych dal primo do ty knihovny jako konstantu, s par beznejma hodnotama.
 VALUE_GUID = {
     "engine_state": "BB2D1ADE-740E-488d-853B-6BA970D52E27",
     "mode":         "6a12aed6-3be0-44c4-9110-9ea33cfe3ccc",
