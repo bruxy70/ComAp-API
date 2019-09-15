@@ -11,8 +11,10 @@ import aiohttp
 from config import KEY, TOKEN
 from datetime import datetime,date
 from comap.api_async import comapapi_async
-logging.basicConfig(level=logging.ERROR)
+# logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.CRITICAL)
 
+#Tohle bych dal primo do ty knihovny jako konstantu, s par beznejma hodnotama.
 VALUE_GUID = {
     "engine_state": "BB2D1ADE-740E-488d-853B-6BA970D52E27",
     "mode":         "6a12aed6-3be0-44c4-9110-9ea33cfe3ccc",
@@ -24,11 +26,11 @@ async def check_status():
     wsv=comapapi_async(session,KEY,TOKEN)
     units = await wsv.async_units()
     for unit in units:
-        values=await wsv.async_values(unit["unitGuid"],VALUE_GUID["mode"])
+        values=await wsv.async_values(unit["unitGuid"],VALUE_GUID["mode"].lower())
         if len(values)>0:
-            print(f'{unit["name"]:<15} {values[0]["value"]:<5} since {values[0]["timeStamp"]}')
+            print(f'{unit["name"]:>35}  {values[0]["value"]:<5} since {values[0]["timeStamp"]}')
         else:
-            print(f'{unit["name"]:<15} N/A')
+            print(f'{unit["name"]:>35}  N/A')
     await session.close()
 
 asyncio.run(check_status())
