@@ -1,7 +1,7 @@
 import logging
 from config import KEY, TOKEN
 from comap.api import comapapi
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.ERROR)
 
 units = comapapi(KEY,TOKEN).units()
 print('List of units available within user account')
