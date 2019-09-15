@@ -1,5 +1,6 @@
 # Configuration of API keys
-*config.py
+simple-examples/config.py
+simple-examples-async/config.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
