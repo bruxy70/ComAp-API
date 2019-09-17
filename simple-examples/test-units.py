@@ -1,9 +1,9 @@
 import logging
 from config import KEY, TOKEN
-from comap.api import comapapi
+from comap.api import wsv
 logging.basicConfig(level=logging.ERROR)
 
-units = comapapi(KEY,TOKEN).units()
+units = wsv(KEY,TOKEN).units()
 print('List of units available within user account')
 print('-------------------------------------------')
 for unit in units:

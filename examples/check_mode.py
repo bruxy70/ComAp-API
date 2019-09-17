@@ -10,14 +10,14 @@ import logging
 import aiohttp
 from config import KEY, TOKEN
 from datetime import datetime,date
-from comap.api_async import comapapi_async
+from comap.api_async import wsv_async
 from comap.constants import VALUE_GUID
 # logging.basicConfig(level=logging.ERROR)
 logging.basicConfig(level=logging.CRITICAL)
 
 async def check_status():
     session=aiohttp.ClientSession(raise_for_status=True)
-    wsv=comapapi_async(session,KEY,TOKEN)
+    wsv=wsv_async(session,KEY,TOKEN)
     units = await wsv.async_units()
     print(f'{"Name":>35}  {"State":<12} {"Mode":<5} Since')
     print('---------------------------------------------------------------------------')

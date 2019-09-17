@@ -1,4 +1,4 @@
-python -m pip install --upgrade comap
+python -m pip install -r requirements.txt
 cls
 python get-token.py
 pause

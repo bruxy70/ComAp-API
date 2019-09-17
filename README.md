@@ -1,5 +1,5 @@
 # ComAp API
-Allows easy automation of WebSupervisor tasks, such as downloading and analyzing data
+Allows easy automation of WebSupervisor tasks, such as downloading and analyzing data. It utilizes the [ComAp-API package](https://pypi.org/project/comap-api/), that manages calls to the official ComAp API.
 
 ## Setup & Configuration
 1. Install Python
