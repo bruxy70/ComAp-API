@@ -11,16 +11,9 @@ import aiohttp
 from config import KEY, TOKEN
 from datetime import datetime,date
 from comap.api_async import comapapi_async
+from comap.constants import VALUE_GUID
 # logging.basicConfig(level=logging.ERROR)
 logging.basicConfig(level=logging.CRITICAL)
-
-#Tohle bych dal primo do ty knihovny jako konstantu, s par beznejma hodnotama.
-VALUE_GUID = {
-    "engine_state": "BB2D1ADE-740E-488d-853B-6BA970D52E27",
-    "mode":         "6a12aed6-3be0-44c4-9110-9ea33cfe3ccc",
-    "state":        "F0219C1C-1860-4b4d-8E6E-3CEC96279D6F",
-    "fuel_level":   "0dc2739f-0fc9-4a17-bc91-26e5dda19ed8"
-}
 
 async def check_status():
     session=aiohttp.ClientSession(raise_for_status=True)
@@ -29,7 +22,7 @@ async def check_status():
     print(f'{"Name":>35}  {"State":<12} {"Mode":<5} Since')
     print('---------------------------------------------------------------------------')
     for unit in units:
-        values=await wsv.async_values(unit["unitGuid"],f'{VALUE_GUID["state"]},{VALUE_GUID["mode"]}')
+        values=await wsv.async_values(unit["unitGuid"],f'{VALUE_GUID["comm_state"]},{VALUE_GUID["mode"]}')
         # if len(values)>0 and values[0]["value"]=='Online':
         #     print(f'{unit["name"]:>35}  {values[0]["value"]:<12} {values[1]["value"]:<5} {values[1]["timeStamp"]}')
         if len(values)==2:
@@ -39,4 +32,3 @@ async def check_status():
     await session.close()
 
 asyncio.run(check_status())
-
