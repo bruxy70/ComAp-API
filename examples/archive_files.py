@@ -21,7 +21,7 @@ async def backup(age):
     for unit in units:
         files=await wsv.async_files(unit["unitGuid"])
         print(f'Archiving {unit["name"]}...')    
-        for file in list(filter(lambda f: (today-f["generated"].date()).days<=age,files)):
+        for file in list(filter(lambda f: (today-f["generated"].date()).days <= age,files)):
             print(f'Downloading file {file["fileName"]}')
             if not os.path.exists(unit["name"]): os.mkdir(unit["name"])
             downloaded=await wsv.async_download(unit["unitGuid"],file["fileName"],unit["name"])
