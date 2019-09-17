@@ -11,12 +11,12 @@ import logging
 import aiohttp
 from config import KEY, TOKEN
 from datetime import datetime,date
-from comap.api_async import comapapi_async
+from comap.api_async import wsv_async
 logging.basicConfig(level=logging.ERROR)
 
 async def backup(age):
     session=aiohttp.ClientSession(raise_for_status=True)
-    wsv=comapapi_async(session,KEY,TOKEN)
+    wsv=wsv_async(session,KEY,TOKEN)
     units = await wsv.async_units()
     for unit in units:
         files=await wsv.async_files(unit["unitGuid"])

@@ -1,4 +1,4 @@
-from comap.api import comapapi
+from comap.api import wsv
 import getpass 
 
 print('This program will generate a configuration file, that will store your credentials to use ComAp API.\n')
@@ -11,7 +11,7 @@ if proceed=='y':
     comap_key= input("Enter your key (one of them): ")
     username = input("Enter your WebSupervisor user name: ")
     password = getpass.getpass("Enter your WebSupervisor password: ")
-    token = comapapi(comap_key,'').authenticate(username,password)
+    token = wsv(comap_key,'').authenticate(username,password)
     if token!=None:
         f = open("config.py", "w")
         f.write(f"KEY='{comap_key}'\n")
