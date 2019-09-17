@@ -30,6 +30,8 @@ async def check_status():
     print('---------------------------------------------------------------------------')
     for unit in units:
         values=await wsv.async_values(unit["unitGuid"],f'{VALUE_GUID["state"]},{VALUE_GUID["mode"]}')
+        # if len(values)>0 and values[0]["value"]=='Online':
+        #     print(f'{unit["name"]:>35}  {values[0]["value"]:<12} {values[1]["value"]:<5} {values[1]["timeStamp"]}')
         if len(values)==1:
             print(f'{unit["name"]:>35}  {values[0]["value"]:<12} N/A')
         elif len(values)==2:
