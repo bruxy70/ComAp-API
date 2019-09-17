@@ -1,19 +1,12 @@
 # ComAp API
 Allows easy automation of WebSupervisor tasks, such as downloading and analyzing data
 
-## Setup
+## Setup & Configuration
 1. Install Python
 2. Download the files from the test directory
-3. Install ComAp API package by following command
-```
-setup.bat
-```
-(or simply ``python -m pip install --upgrade comap``)
-
-## Configuration
-1. From your ComAp API Developer portal go to your [Profile](https://portal.websupervisor.net/developer) and copy your  Primary or Secondary Key. 
-2. From your command line, execute ``python get-token.py``. Follow the instructions! It will generate configuration file ``config.py`` with your API secrets.
-3. Copy the ``config.py`` to each test directory
+3. From your ComAp API Developer portal go to your [Profile](https://portal.websupervisor.net/developer) and copy your  Primary or Secondary Key. 
+4. Configure your account - run ``setup.bat`` and follow the instructions! It will generate configuration file ``config.py`` with your API secrets.
+5. Copy the ``config.py`` to each test directory
 
 ## Testing
 In the ``simple-examples`` directory, there are examples of individual functions
