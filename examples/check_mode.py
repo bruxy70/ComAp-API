@@ -12,7 +12,6 @@ from config import KEY, TOKEN
 from datetime import datetime,date
 from comap.api_async import wsv_async
 from comap.constants import VALUE_GUID
-# logging.basicConfig(level=logging.ERROR)
 logging.basicConfig(level=logging.CRITICAL)
 
 async def check_status():
