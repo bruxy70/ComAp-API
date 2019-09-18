@@ -6,4 +6,4 @@ logging.basicConfig(level=logging.ERROR)
 comments = wsv(KEY,TOKEN).comments(GENSET_ID)
 print('Comments')
 for comment in comments:
-    print(f'{comment["auhtor"]:<18} {comment["date"]} {comment["text"]}')
+    print(f'{comment["author"]:<18} {comment["date"]} {comment["text"]}')
