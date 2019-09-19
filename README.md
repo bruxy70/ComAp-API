@@ -18,4 +18,4 @@ In the ``examples`` directory, there are examples of usefull scripts:
 - ``check_mode.py`` is listing communication state and mode of the controllers registered under your account. This can be further customized to for example identify units that are not in ``AUT`` mode and make further actions (e.g. send notification).
 
 ## Testing
-All the examples included in the Jupyter notebook are alao available in the ``simple-examples`` directory. You can run them with your account and play with them.
+All the examples included in the Jupyter notebook are alao available in the ``testing`` directory. You can run them with your account and play with them.
