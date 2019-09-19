@@ -1,4 +1,5 @@
 # Configuration of API keys
+config.py
 simple-examples/config.py
 simple-examples-async/config.py
 examples/config.py
