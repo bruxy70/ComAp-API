@@ -6,7 +6,7 @@ Allows easy automation of WebSupervisor tasks, such as downloading and analyzing
 2. Download the files from the test directory
 3. From your ComAp API Developer portal go to your [Profile](https://portal.websupervisor.net/developer) and copy your  Primary or Secondary Key. 
 4. Configure your account - run ``setup.bat`` and follow the instructions! It will generate configuration file ``config.py`` with your API secrets.
-5. Copy the ``config.py`` to the `examples` and `simple-examples` directories.
+5. Copy the ``config.py`` to the `examples` and `testing` directories.
 
 ## Documentation
 The documentation with examples is available on [this Jupyter notebook](https://nbviewer.jupyter.org/github/bruxy70/ComAp-API/blob/development/Documentation.ipynb)
