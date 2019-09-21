@@ -1,10 +1,9 @@
 import logging
 from config import KEY, TOKEN, GENSET_ID
 from comap.api import wsv
-from datetime import datetime,datetime
 logging.basicConfig(level=logging.ERROR)
 
-info = wsv(KEY,TOKEN).info(GENSET_ID)
+info = wsv(KEY, TOKEN).info(GENSET_ID)
 print('Information')
 print('-------------------------------------------')
 print(f'Name:        {info["name"]}')

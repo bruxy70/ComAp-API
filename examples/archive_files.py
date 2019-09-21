@@ -10,33 +10,33 @@ import asyncio
 import logging
 import aiohttp
 from config import KEY, TOKEN
-from datetime import datetime,date
+from datetime import datetime, date
 from comap.api_async import wsv_async
 logging.basicConfig(level=logging.ERROR)
 
 async def backup(age):
-    session=aiohttp.ClientSession(raise_for_status=True)
-    wsv=wsv_async(session,KEY,TOKEN)
+    session = aiohttp.ClientSession(raise_for_status=True)
+    wsv = wsv_async(session, KEY, TOKEN)
     units = await wsv.async_units()
     for unit in units:
-        files=await wsv.async_files(unit["unitGuid"])
+        files = await wsv.async_files(unit["unitGuid"])
         print(f'Archiving {unit["name"]}...')    
-        for file in list(filter(lambda f: (today-f["generated"].date()).days <= age,files)):
+        for file in list(filter(lambda f: (today - f["generated"].date()).days <= age, files)):
             print(f'Downloading file {file["fileName"]}')
-            if not os.path.exists(unit["name"]): os.mkdir(unit["name"])
-            downloaded=await wsv.async_download(unit["unitGuid"],file["fileName"],unit["name"])
+            if not os.path.exists(unit["name"]):
+                os.mkdir(unit["name"])
+            downloaded = await wsv.async_download(unit["unitGuid"], file["fileName"], unit["name"])
             print(f"{' - SUCCESS' if downloaded else ' - FAILED'}")
     await session.close()
 
-today=datetime.now().date()
+today = datetime.now().date()
 try:
-    if len(sys.argv)>1:
-        age=int(sys.argv[1])
+    if len(sys.argv) > 1:
+        age = int(sys.argv[1])
     else:
-        age=int(input("Enter maximum age of the files to download (in days): "))
+        age = int(input("Enter maximum age of the files to download (in days): "))
 except ValueError as e:
-    print("The age must be a number!")        
+    print("The age must be a number!")
     quit()
 
 asyncio.run(backup(age))
-

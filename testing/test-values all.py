@@ -3,7 +3,7 @@ from config import KEY, TOKEN, GENSET_ID
 from comap.api import wsv
 logging.basicConfig(level=logging.ERROR)
 
-values = wsv(KEY,TOKEN).values(GENSET_ID)
+values = wsv(KEY, TOKEN).values(GENSET_ID)
 print('Genset values')
 print('-------------------------------------------')
 for value in values:

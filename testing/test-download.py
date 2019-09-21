@@ -7,5 +7,5 @@ logging.basicConfig(level=logging.ERROR)
 FILENAME = '2019-04-02_13-59_IL3 AMF25 - nahradnik - GSM.csv'
 
 print(f'Downloading file {FILENAME}')
-downloaded=wsv(KEY,TOKEN).download(GENSET_ID,FILENAME)
-print(f"{FILENAME} download {'SUCCESS' if downloaded else 'FAILED'}")    
+downloaded = wsv(KEY, TOKEN).download(GENSET_ID, FILENAME)
+print(f"{FILENAME} download {'SUCCESS' if downloaded else 'FAILED'}")
