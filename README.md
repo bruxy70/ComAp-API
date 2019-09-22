@@ -11,6 +11,8 @@ Allows easy automation of WebSupervisor tasks, such as downloading and analyzing
 ## Documentation
 The documentation with examples is available on [this Jupyter notebook](https://nbviewer.jupyter.org/github/bruxy70/ComAp-API/blob/development/Documentation.ipynb)
 
+*The ``asyncio`` examples are [also available](https://nbviewer.jupyter.org/github/bruxy70/ComAp-API/blob/development/Asyncio%20test.ipynb)*
+
 ## Example Scripts
 In the ``examples`` directory, there are examples of usefull scripts:
 - ``archive_files.py <age>`` will download  the files stored on all units registered on your account. You can call it with a parameter to specify maximum age of files to be downloaded. It will create a directory for each unit that has fles to download.
