@@ -6,24 +6,28 @@ Age is a number of days and is optional. If no age is given, the script will pro
 import logging
 import os
 import sys
+import asyncio
 import logging
+import aiohttp
 from config import KEY, TOKEN
 from datetime import datetime, date
-import comap.api
+from comap.api_async import wsv_async
 logging.basicConfig(level=logging.ERROR)
 
-def backup(age):
-    wsv = comap.api.wsv(KEY, TOKEN)
-    units = wsv.units()
+async def backup(age):
+    session = aiohttp.ClientSession(raise_for_status=True)
+    wsv = wsv_async(session, KEY, TOKEN)
+    units = await wsv.async_units()
     for unit in units:
-        files = wsv.files(unit["unitGuid"])
+        files = await wsv.async_files(unit["unitGuid"])
         print(f'Archiving {unit["name"]}...')    
         for file in list(filter(lambda f: (today - f["generated"].date()).days <= age, files)):
             print(f'Downloading file {file["fileName"]}')
             if not os.path.exists(unit["name"]):
                 os.mkdir(unit["name"])
-            downloaded = wsv.download(unit["unitGuid"], file["fileName"], unit["name"])
+            downloaded = await wsv.async_download(unit["unitGuid"], file["fileName"], unit["name"])
             print(f"{' - SUCCESS' if downloaded else ' - FAILED'}")
+    await session.close()
 
 today = datetime.now().date()
 try:
@@ -35,4 +39,4 @@ except ValueError as e:
     print("The age must be a number!")
     quit()
 
-backup(age)
+asyncio.run(backup(age))
