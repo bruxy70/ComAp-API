@@ -174,5 +174,42 @@
       "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0YjdmMWU4YTc3YmM0NjNiYTg4NWMxNGNhYTA5OGRjNSIsImlhdCI6MTY2Mjk3ODA2MiwiZXhwIjoxOTc4MzM4MDYyfQ.-MVeRn4Cmy-yqrFM7Wk9A7VHXgLtE84_yLBiYQ6wcKo"
     },
     "tests": []
+  },
+  {
+    "_id": "074593a6-04e6-4aed-a313-3c2dd080422a",
+    "colId": "4c2872df-0d00-4ac7-94f9-1895dd996a3f",
+    "containerId": "",
+    "name": "Info",
+    "url": "https://api.websupervisor.net/v1/units/genset55e9ca6e5bb44b71b9b4a9cc236f8870/info",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-01-05T17:34:49.045Z",
+    "modified": "2023-01-05T17:35:58.560Z",
+    "headers": [
+      {
+        "name": "Comap-Key",
+        "value": "22c908d5bf934c47b9f22bb01378105c"
+      },
+      {
+        "name": "Token",
+        "value": "d407739cc6c704fa2ba9cfe4f2101c44a"
+      },
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
   }
 ]
