@@ -79,11 +79,11 @@
     "colId": "4c2872df-0d00-4ac7-94f9-1895dd996a3f",
     "containerId": "",
     "name": "Values",
-    "url": "https://api.websupervisor.net/v1/units/genset55e9ca6e5bb44b71b9b4a9cc236f8870/values",
+    "url": "https://api.websupervisor.net/v1/units/genset9040a7441d20447687204b35c59d4047/values",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-01-05T17:33:46.521Z",
-    "modified": "2023-01-05T17:33:46.521Z",
+    "modified": "2023-01-05T17:54:47.536Z",
     "headers": [
       {
         "name": "Comap-Key",
@@ -180,11 +180,11 @@
     "colId": "4c2872df-0d00-4ac7-94f9-1895dd996a3f",
     "containerId": "",
     "name": "Info",
-    "url": "https://api.websupervisor.net/v1/units/genset55e9ca6e5bb44b71b9b4a9cc236f8870/info",
+    "url": "https://api.websupervisor.net/v1/units/genset9040a7441d20447687204b35c59d4047/info",
     "method": "GET",
     "sortNum": 40000,
     "created": "2023-01-05T17:34:49.045Z",
-    "modified": "2023-01-05T17:35:58.560Z",
+    "modified": "2023-01-05T17:54:23.739Z",
     "headers": [
       {
         "name": "Comap-Key",
