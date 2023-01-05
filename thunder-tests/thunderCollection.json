@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "4c2872df-0d00-4ac7-94f9-1895dd996a3f",
+    "colName": "ComAp",
+    "created": "2023-01-05T17:33:46.516Z",
+    "sortNum": 10000,
+    "folders": []
+  },
+  {
+    "_id": "411a2681-f1f4-4403-9e63-9410a5f969f3",
+    "colName": "HomeAssistant",
+    "created": "2023-01-05T17:34:02.044Z",
+    "sortNum": 20000,
+    "folders": []
+  }
+]
