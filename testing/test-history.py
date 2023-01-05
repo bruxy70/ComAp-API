@@ -1,19 +1,16 @@
 import logging
-from config import KEY, TOKEN, GENSET_ID
+
+import timestring
 from comap.api import wsv
 from comap.constants import VALUE_GUID
-import timestring
+from config import GENSET_ID, KEY, TOKEN
+
 logging.basicConfig(level=logging.ERROR)
 
-VALUE_GUID = VALUE_GUID['engine_state']
+VALUE_GUID = VALUE_GUID["engine_state"]
 
-history = wsv(KEY, TOKEN).history(
-    GENSET_ID,
-    '09/10/2019',
-    '09/13/2019',
-    VALUE_GUID
-)
-print('Engine State history')
-print('-------------------------------------------')
+history = wsv(KEY, TOKEN).history(GENSET_ID, "12/01/2022", "12/02/2022", VALUE_GUID)
+print("Engine State history")
+print("-------------------------------------------")
 for event in history[0]["history"]:
     print(f'{event["value"]:<8} valit to {event["validTo"]}')
