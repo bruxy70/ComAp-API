@@ -19,6 +19,7 @@ shared = dotenv_values(".env.shared")
 
 logging.basicConfig(level=logging.CRITICAL)
 
+
 async def backup(age):
     # The aiohttp uses a session https connection pool handler
     async with aiohttp.ClientSession() as session:
@@ -46,6 +47,7 @@ async def backup(age):
                         os.mkdir(unit["name"])
                     downloaded = await wsv.download(unit["unitGuid"], file["fileName"], unit["name"])
                     print(f"{' - SUCCESS' if downloaded else ' - FAILED'}")
+
 
 today = datetime.now().date()
 try:
