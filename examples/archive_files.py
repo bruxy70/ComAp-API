@@ -6,24 +6,35 @@ Age is a number of days and is optional. If no age is given, the script will pro
 import logging
 import os
 import sys
-import logging
-from config import KEY, TOKEN
-from datetime import datetime, date
-import comap.api
+from datetime import datetime
+
+from comap import api
+from dotenv import dotenv_values
+
+# Retrieve secrets and common values stored in the .env files
+secrets = dotenv_values(".env.secret")
+shared = dotenv_values(".env.shared")
+
 logging.basicConfig(level=logging.ERROR)
 
 def backup(age):
-    wsv = comap.api.wsv(KEY, TOKEN)
-    units = wsv.units()
-    for unit in units:
-        files = wsv.files(unit["unitGuid"])
-        print(f'Archiving {unit["name"]}...')    
-        for file in list(filter(lambda f: (today - f["generated"].date()).days <= age, files)):
-            print(f'Downloading file {file["fileName"]}')
-            if not os.path.exists(unit["name"]):
-                os.mkdir(unit["name"])
-            downloaded = wsv.download(unit["unitGuid"], file["fileName"], unit["name"])
-            print(f"{' - SUCCESS' if downloaded else ' - FAILED'}")
+    # Use the ComAp Cloud Identity API to get the Bearer token
+    identity = api.Identity(secrets["COMAP_KEY"])
+    token = identity.authenticate(secrets["CLIENT_ID"], secrets["SECRET"])
+
+    if token is not None:
+        # Create WSV instance to call APIs
+        wsv = api.WSV(secrets["LOGIN_ID"], secrets["COMAP_KEY"], token["access_token"])
+        units = wsv.units()
+        for unit in units:
+            files = wsv.files(unit["unitGuid"])
+            print(f'Archiving {unit["name"]}...')    
+            for file in list(filter(lambda f: (today - f["generated"].date()).days <= age, files)):
+                print(f'Downloading file {file["fileName"]}')
+                if not os.path.exists(unit["name"]):
+                    os.mkdir(unit["name"])
+                downloaded = wsv.download(unit["unitGuid"], file["fileName"], unit["name"])
+                print(f"{' - SUCCESS' if downloaded else ' - FAILED'}")
 
 today = datetime.now().date()
 try:

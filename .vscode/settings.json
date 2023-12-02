@@ -2,5 +2,9 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
     "python.linting.enabled": true,
-    "thunder-client.saveToWorkspace": true
+    "python.testing.pytestArgs": [
+        "testing"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
